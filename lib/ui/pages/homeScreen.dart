@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:networking_mic/ui/pages/profilepage.dart';
 import 'package:networking_mic/ui/widget/postCard.dart';
 import 'package:networking_mic/ui/widget/profilePage.dart';
 
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()),
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
                 );
               },
               child: Container(
@@ -60,3 +61,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+

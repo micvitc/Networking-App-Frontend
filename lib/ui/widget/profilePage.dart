@@ -18,7 +18,7 @@ class ProfilePage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        title: const Row(
+        title:  Row(
           children: [
             SizedBox(
               width: 60,
@@ -68,7 +68,7 @@ class ProfilePage extends StatelessWidget {
               decoration: BoxDecoration(
                   color: const Color(0xFF1E2643),
                   borderRadius: BorderRadius.circular(10)),
-              child: const Row(
+              child:  Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Icon(
@@ -96,7 +96,7 @@ class ProfilePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   color: const Color(0xFF131A32),
                 ),
-                child: const Padding(
+                child:  Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
