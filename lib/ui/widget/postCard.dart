@@ -111,9 +111,9 @@ class PostCard extends StatelessWidget {
               top: 330,
               child: Row(children: [
                 const LikeButton(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.only(left: 10),
                   likeCount: 69,
-                  animationDuration: Duration(milliseconds: 150),
+                  animationDuration: Duration(milliseconds: 200),
                   likeCountAnimationDuration: Duration(milliseconds: 130),
                 ),
                 const SizedBox(
@@ -136,7 +136,7 @@ class PostCard extends StatelessWidget {
                         backgroundColor: Colors.transparent,
                         elevation: 0)),
                 const SizedBox(
-                  width: 25,
+                  width: 15,
                 ),
                 ElevatedButton.icon(
                     onPressed: () {},

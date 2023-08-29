@@ -92,10 +92,10 @@ class _PostState extends State<Post> {
                 ),
                 Row(children: [
                   const LikeButton(
-                    padding: EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.only(left: 4),
                     likeCount: 69,
                     likeCountAnimationDuration: Duration(milliseconds: 120),
-                    animationDuration: Duration(milliseconds: 150),
+                    animationDuration: Duration(milliseconds: 200),
                   ),
                   const SizedBox(
                     width: 55,
@@ -112,7 +112,7 @@ class _PostState extends State<Post> {
                           backgroundColor: Colors.transparent,
                           elevation: 0)),
                   const SizedBox(
-                    width: 25,
+                    width: 15,
                   ),
                   ElevatedButton.icon(
                       onPressed: () {},
