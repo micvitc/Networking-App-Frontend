@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 import 'package:networking_mic/ui/pages/post.dart';
 
 class PostCard extends StatelessWidget {
@@ -109,19 +110,14 @@ class PostCard extends StatelessWidget {
             Positioned(
               top: 330,
               child: Row(children: [
-                ElevatedButton.icon(
-                    onPressed: () {},
-                    label: const Text("Like",
-                        style: TextStyle(color: Colors.white)),
-                    icon: const Icon(
-                      Icons.thumb_up,
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        elevation: 0)),
+                const LikeButton(
+                  padding: EdgeInsets.only(left: 20),
+                  likeCount: 69,
+                  animationDuration: Duration(milliseconds: 150),
+                  likeCountAnimationDuration: Duration(milliseconds: 130),
+                ),
                 const SizedBox(
-                  width: 25,
+                  width: 55,
                 ),
                 ElevatedButton.icon(
                     onPressed: () {

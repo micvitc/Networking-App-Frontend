@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 
 final description =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non odio euismod lacinia at. Tortor aliquam nulla facilisi cras fermentum odio eu. Ut tortor pretium viverra suspendisse potenti nullam. Massa enim nec dui nunc mattis enim ut tellus. In tellus integer feugiat scelerisque varius morbi enim nunc. Quis lectus nulla at volutpat diam ut venenatis tellus. Dolor magna eget est lorem ipsum dolor sit amet. Pellentesque id nibh tortor id. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Et netus et malesuada fames ac turpis egestas. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Tellus at urna condimentum mattis. Maecenas accumsan lacus vel facilisis volutpat. Nulla posuere sollicitudin aliquam ultrices sagittis orci. Tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum. Natoque penatibus et magnis dis parturient.";
@@ -19,9 +20,9 @@ class _PostState extends State<Post> {
             backgroundColor: const Color(0xFF131a32),
             foregroundColor: Colors.white),
         body: Container(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: const Color(0xFF131a32)),
+          decoration: const BoxDecoration(color: Color(0xFF131a32)),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -75,7 +76,7 @@ class _PostState extends State<Post> {
                         ))
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 DescriptionTextWidget(
@@ -90,39 +91,34 @@ class _PostState extends State<Post> {
                   ),
                 ),
                 Row(children: [
-                  ElevatedButton.icon(
-                      onPressed: () {},
-                      label:
-                          Text("Like", style: TextStyle(color: Colors.white)),
-                      icon: Icon(
-                        Icons.thumb_up,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.transparent,
-                          elevation: 0)),
-                  SizedBox(
-                    width: 20,
+                  const LikeButton(
+                    padding: EdgeInsets.only(left: 10),
+                    likeCount: 69,
+                    likeCountAnimationDuration: Duration(milliseconds: 120),
+                    animationDuration: Duration(milliseconds: 150),
+                  ),
+                  const SizedBox(
+                    width: 55,
                   ),
                   ElevatedButton.icon(
                       onPressed: () {},
-                      label: Text("Comment",
+                      label: const Text("Comment",
                           style: TextStyle(color: Colors.white)),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.comment,
                       ),
                       style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.transparent,
                           elevation: 0)),
-                  SizedBox(
-                    width: 20,
+                  const SizedBox(
+                    width: 25,
                   ),
                   ElevatedButton.icon(
                       onPressed: () {},
-                      label:
-                          Text("Share", style: TextStyle(color: Colors.white)),
-                      icon: Icon(
+                      label: const Text("Share",
+                          style: TextStyle(color: Colors.white)),
+                      icon: const Icon(
                         Icons.share,
                       ),
                       style: ElevatedButton.styleFrom(
@@ -130,13 +126,13 @@ class _PostState extends State<Post> {
                           backgroundColor: Colors.transparent,
                           elevation: 0))
                 ]),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 ListView.builder(
                   shrinkWrap: true,
                   itemExtent: 100,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: 40,
                   itemBuilder: ((context, index) {
                     return Comment(
@@ -174,7 +170,7 @@ class Comment extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Column(
@@ -183,12 +179,12 @@ class Comment extends StatelessWidget {
           children: [
             Text(
               "User $index",
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.w400),
             ),
-            Text(
+            const Text(
               "COngratulations !!!",
               style: TextStyle(color: Colors.white),
             )
@@ -230,23 +226,23 @@ class _DescriptionTextWidgetState extends State<DescriptionTextWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      padding: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: secondHalf.isEmpty
-          ? new Text(
+          ? Text(
               firstHalf,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             )
-          : new Column(
+          : Column(
               children: <Widget>[
-                new Text(flag ? (firstHalf + "...") : (firstHalf + secondHalf),
-                    style: TextStyle(color: Colors.white)),
-                new InkWell(
-                  child: new Row(
+                Text(flag ? (firstHalf + "...") : (firstHalf + secondHalf),
+                    style: const TextStyle(color: Colors.white)),
+                InkWell(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      new Text(flag ? "show more" : "show less",
-                          style: TextStyle(color: Colors.white)),
+                      Text(flag ? "show more" : "show less",
+                          style: const TextStyle(color: Colors.white)),
                     ],
                   ),
                   onTap: () {
