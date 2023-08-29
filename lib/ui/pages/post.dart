@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+final description =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non odio euismod lacinia at. Tortor aliquam nulla facilisi cras fermentum odio eu. Ut tortor pretium viverra suspendisse potenti nullam. Massa enim nec dui nunc mattis enim ut tellus. In tellus integer feugiat scelerisque varius morbi enim nunc. Quis lectus nulla at volutpat diam ut venenatis tellus. Dolor magna eget est lorem ipsum dolor sit amet. Pellentesque id nibh tortor id. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Et netus et malesuada fames ac turpis egestas. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Tellus at urna condimentum mattis. Maecenas accumsan lacus vel facilisis volutpat. Nulla posuere sollicitudin aliquam ultrices sagittis orci. Tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum. Natoque penatibus et magnis dis parturient.";
+
 class Post extends StatefulWidget {
   const Post({super.key});
 
@@ -75,9 +78,16 @@ class _PostState extends State<Post> {
                 SizedBox(
                   height: 10,
                 ),
-                const Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non odio euismod lacinia at. Tortor aliquam nulla facilisi cras fermentum odio eu. Ut tortor pretium viverra suspendisse potenti nullam. Massa enim nec dui nunc mattis enim ut tellus. In tellus integer feugiat scelerisque varius morbi enim nunc. Quis lectus nulla at volutpat diam ut venenatis tellus. Dolor magna eget est lorem ipsum dolor sit amet. Pellentesque id nibh tortor id. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Et netus et malesuada fames ac turpis egestas. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Tellus at urna condimentum mattis. Maecenas accumsan lacus vel facilisis volutpat. Nulla posuere sollicitudin aliquam ultrices sagittis orci. Tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum. Natoque penatibus et magnis dis parturient.",
-                  style: TextStyle(color: Colors.white),
+                DescriptionTextWidget(
+                  text: description,
+                ),
+                SizedBox(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    'assets/icons/media.png',
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 Row(children: [
                   ElevatedButton.icon(
@@ -186,5 +196,67 @@ class Comment extends StatelessWidget {
         ),
       ],
     ));
+  }
+}
+
+class DescriptionTextWidget extends StatefulWidget {
+  final String text;
+
+  DescriptionTextWidget({required this.text});
+
+  @override
+  _DescriptionTextWidgetState createState() =>
+      new _DescriptionTextWidgetState();
+}
+
+class _DescriptionTextWidgetState extends State<DescriptionTextWidget> {
+  late String firstHalf;
+  late String secondHalf;
+
+  bool flag = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.text.length > 50) {
+      firstHalf = widget.text.substring(0, 200);
+      secondHalf = widget.text.substring(50, widget.text.length);
+    } else {
+      firstHalf = widget.text;
+      secondHalf = "";
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      padding: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      child: secondHalf.isEmpty
+          ? new Text(
+              firstHalf,
+              style: TextStyle(color: Colors.white),
+            )
+          : new Column(
+              children: <Widget>[
+                new Text(flag ? (firstHalf + "...") : (firstHalf + secondHalf),
+                    style: TextStyle(color: Colors.white)),
+                new InkWell(
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      new Text(flag ? "show more" : "show less",
+                          style: TextStyle(color: Colors.white)),
+                    ],
+                  ),
+                  onTap: () {
+                    setState(() {
+                      flag = !flag;
+                    });
+                  },
+                ),
+              ],
+            ),
+    );
   }
 }
