@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../controllers/profilecontroller.dart';
 import '../widget/constants.dart';
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    final profileController = Provider.of<ProfileController>(context);
+
+    //final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: const Color(0xFF131a32),
+      
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
         ),
-        // iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: const Text(
@@ -27,124 +34,137 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
                 const CircleAvatar(
-                  radius: 50,
-                  backgroundImage: AssetImage(
-                      "assets/icons/profile.png"), // Replace with your image
+                  radius: 45,
+                  backgroundImage: NetworkImage(
+                      "https://aniyuki.com/wp-content/uploads/2022/04/aniyuki-sasuke-uchiha-avatar-29.jpg"),
                 ),
                 const SizedBox(
-                  width: 24,
+                  width: 15,
                 ),
-                Column(
-                  children: const [
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Posts",
+                            style: style1,
+                          ),
+                          Text(
+                            profileController.postsCount
+                                .toString(), // Use postsCount from the controller
+                            style: style2,
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Followers",
+                            style: style1,
+                          ),
+                          Text(
+                            profileController.followersCount
+                                .toString(), // Use followersCount from the controller
+                            style: style2,
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Following",
+                            style: style1,
+                          ),
+                          Text(
+                            profileController.followingCount
+                                .toString(), // Use followingCount from the controller
+                            style: style2,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
                     Text(
-                      "Madhav Raizada",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                      profileController
+                          .userName, // Use userName from the controller
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
-                    Text(
-                      "22BLC1173",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      height: 20,
+                      width: 65,
+                      decoration: BoxDecoration(
+                        color: profileController.personType == "Student"
+                            ? Color.fromARGB(255, 122, 148, 245)
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Center(
+                        child: Text(
+                          profileController
+                              .personType, // Use personType from the controller
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12),
+                        ),
+                      ),
                     ),
                   ],
+                ),
+                Text(
+                  profileController.userID, // Use userID from the controller
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                Text(
+                  profileController.bio, // Use bio from the controller
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
+                  maxLines: 3,
                 )
               ],
             ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Posts",
-                      style: style1,
-                    ),
-                    Text(
-                      "12",
-                      style: style2,
-                    )
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Followers",
-                      style: style1,
-                    ),
-                    Text(
-                      "12",
-                      style: style2,
-                    )
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Following",
-                      style: style1,
-                    ),
-                    Text(
-                      "12",
-                      style: style2,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SizedBox(
-                  height: 40,
-                  width: width / 2 - 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    onPressed: () {},
-                    child: const Text(
-                      "Follow",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 40,
-                  width: width / 2 - 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    onPressed: () {},
-                    child: const Text(
-                      "Message",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                ),
-                // IconButton(
-                //     onPressed: () {}, icon: Icon(Icons.messenger_outline))
-              ],
-            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 12),
+            const Align(
+                alignment: Alignment.topLeft,
+                child: Text("Activity", style: style1)),
+            const SizedBox(height: 12),
             Expanded(
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
