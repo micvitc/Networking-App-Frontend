@@ -8,6 +8,9 @@ void main() {
 }
 
 ThemeData customTheme = ThemeData(
+  appBarTheme: AppBarTheme(
+    color: Color(0xFF0C141E), // Set the color of the AppBar globally
+  ),
   useMaterial3: true,
   primaryColor: Colors.red,
   colorScheme: ColorScheme.dark(
