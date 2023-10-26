@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:networking_mic/ui/pages/homePage.dart';
 import 'package:networking_mic/ui/pages/profilepage.dart';
+import 'package:networking_mic/ui/pages/settings/settings.dart';
 import 'package:networking_mic/ui/widget/profilePage.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: Settings(),
     );
   }
 }
