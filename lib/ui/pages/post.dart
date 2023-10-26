@@ -90,42 +90,44 @@ class _PostState extends State<Post> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                Row(children: [
-                  const LikeButton(
-                    padding: EdgeInsets.only(left: 4),
-                    likeCount: 69,
-                    likeCountAnimationDuration: Duration(milliseconds: 120),
-                    animationDuration: Duration(milliseconds: 200),
-                  ),
-                  const SizedBox(
-                    width: 55,
-                  ),
-                  ElevatedButton.icon(
-                      onPressed: () {},
-                      label: const Text("Comment",
-                          style: TextStyle(color: Colors.white)),
-                      icon: const Icon(
-                        Icons.comment,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.transparent,
-                          elevation: 0)),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  ElevatedButton.icon(
-                      onPressed: () {},
-                      label: const Text("Share",
-                          style: TextStyle(color: Colors.white)),
-                      icon: const Icon(
-                        Icons.share,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.transparent,
-                          elevation: 0))
-                ]),
+                SafeArea(
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const LikeButton(
+                          padding: EdgeInsets.only(left: 4),
+                          likeCount: 69,
+                          likeCountAnimationDuration:
+                              Duration(milliseconds: 120),
+                          animationDuration: Duration(milliseconds: 200),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        ElevatedButton.icon(
+                            onPressed: () {},
+                            label: const Text("Comment",
+                                style: TextStyle(color: Colors.white)),
+                            icon: const Icon(
+                              Icons.comment,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: Colors.transparent,
+                                elevation: 0)),
+                        ElevatedButton.icon(
+                            onPressed: () {},
+                            label: const Text("Share",
+                                style: TextStyle(color: Colors.white)),
+                            icon: const Icon(
+                              Icons.share,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: Colors.transparent,
+                                elevation: 0))
+                      ]),
+                ),
                 const SizedBox(
                   height: 10,
                 ),

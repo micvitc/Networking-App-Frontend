@@ -109,48 +109,50 @@ class PostCard extends StatelessWidget {
             ),
             Positioned(
               top: 330,
-              child: Row(children: [
-                const LikeButton(
-                  padding: EdgeInsets.only(left: 10),
-                  likeCount: 69,
-                  animationDuration: Duration(milliseconds: 200),
-                  likeCountAnimationDuration: Duration(milliseconds: 130),
-                ),
-                const SizedBox(
-                  width: 55,
-                ),
-                ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const Post();
-                      }));
-                    },
-                    label: const Text("Comment",
-                        style: TextStyle(color: Colors.white)),
-                    icon: const Icon(
-                      Icons.comment,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const LikeButton(
+                      padding: EdgeInsets.only(left: 10),
+                      likeCount: 69,
+                      animationDuration: Duration(milliseconds: 200),
+                      likeCountAnimationDuration: Duration(milliseconds: 130),
                     ),
-                    style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        elevation: 0)),
-                const SizedBox(
-                  width: 15,
-                ),
-                ElevatedButton.icon(
-                    onPressed: () {},
-                    label: const Text("Share",
-                        style: TextStyle(color: Colors.white)),
-                    icon: const Icon(
-                      Icons.share,
+                    const SizedBox(
+                      width: 55,
                     ),
-                    style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.transparent,
-                        elevation: 0))
-              ]),
-            )
+                    ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const Post();
+                          }));
+                        },
+                        label: const Text("Comment",
+                            style: TextStyle(color: Colors.white)),
+                        icon: const Icon(
+                          Icons.comment,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.transparent,
+                            elevation: 0)),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    ElevatedButton.icon(
+                        onPressed: () {},
+                        label: const Text("Share",
+                            style: TextStyle(color: Colors.white)),
+                        icon: const Icon(
+                          Icons.share,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.transparent,
+                            elevation: 0))
+                  ]),
+            ),
           ],
         ),
       ),
