@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:networking_mic/ui/pages/profilepage.dart';
 import 'package:networking_mic/ui/widget/postCard.dart';
-import 'package:networking_mic/ui/widget/profilePage.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: const Color(0xFF0C141E),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0C141E),
-        leading: IconButton(
+        leading: const IconButton(
           icon: Icon(
             Icons.search,
             color: Colors.white,
@@ -40,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => ProfileScreen()),
                 );
               },
-              child: Container(
+              child: SizedBox(
                 height: 45,
                 width: 45,
                 child: ClipRRect(
@@ -55,10 +54,9 @@ class HomeScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: ((context, index) {
-          return PostCard();
+          return const PostCard();
         }),
       ),
     );
   }
 }
-

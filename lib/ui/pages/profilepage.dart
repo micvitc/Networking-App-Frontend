@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:networking_mic/ui/pages/settings/settings.dart';
 
 import '../widget/constants.dart';
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -13,11 +17,19 @@ class ProfileScreen extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
         ),
+        actions: [
+          IconButton(
+              iconSize: 26,
+              color: Colors.white,
+              onPressed: () => Navigator.of(context).push(
+                  CupertinoPageRoute(builder: ((context) => const Settings()))),
+              icon: const Icon(Icons.more_vert_rounded))
+        ],
         // iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -31,18 +43,18 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
+            const Row(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage(
                       "assets/icons/profile.png"), // Replace with your image
                 ),
-                const SizedBox(
+                SizedBox(
                   width: 24,
                 ),
                 Column(
-                  children: const [
+                  children: [
                     Text(
                       "Madhav Raizada",
                       style: TextStyle(
@@ -62,12 +74,12 @@ class ProfileScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "Posts",
                       style: style1,
@@ -80,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "Followers",
                       style: style1,
@@ -93,7 +105,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "Following",
                       style: style1,
