@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:networking_mic/ui/pages/settings/settings.dart';
 
 import '../widget/constants.dart';
 
@@ -9,6 +11,14 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF131a32),
       appBar: AppBar(
+        actions: [
+          IconButton(
+              iconSize: 26,
+              color: Colors.white,
+              onPressed: () => Navigator.of(context).push(
+                  CupertinoPageRoute(builder: ((context) => const Settings()))),
+              icon: const Icon(Icons.more_vert_rounded))
+        ],
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();

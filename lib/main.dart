@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:networking_mic/ui/pages/gettingStarted/get_started_page.dart';
 import 'package:networking_mic/ui/pages/homePage.dart';
+import 'package:networking_mic/ui/pages/profilepage.dart';
 
 void main() {
   runApp(const MyApp());
