@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:networking_mic/ui/pages/gettingStarted/sign_up_page.dart';
+import 'package:networking_mic/ui/pages/gettingStarted/widgets/otp_page.dart';
 import 'package:networking_mic/utils/appSizeUtil.dart';
 import 'package:networking_mic/utils/textUtil.dart';
 
@@ -103,8 +104,8 @@ class _SignInPageState extends State<SignInPage> {
                 height: 100.h,
               ),
               InkWell(
-                // onTap: () => Navigator.of(context).push(
-                //     MaterialPageRoute(builder: (context) => SignInPage())),
+                onTap: () => Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => OtpPage())),
                 child: Container(
                   width: 137,
                   height: 49,

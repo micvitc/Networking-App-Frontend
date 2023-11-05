@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:networking_mic/ui/pages/gettingStarted/sign_in_page.dart';
-import 'package:networking_mic/ui/pages/gettingStarted/sign_up_additional_page.dart';
+import 'package:networking_mic/ui/pages/gettingStarted/widgets/sign_up_additional_page.dart';
 import 'package:networking_mic/utils/textUtil.dart';
 
 class SignUpPage extends StatelessWidget {
